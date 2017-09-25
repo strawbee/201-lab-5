@@ -58,6 +58,7 @@ Test this function by hand in the console to get it working, and when you think 
 function sumAndMultiply (a, b, c) { //eslint-disable-line
   var aPlusB = sum(a, b);
   var theSum = sum(aPlusB[0], c);
+  // alternatively, var theSum = sum(sum(a, b)[0], c)[0];
   var aTimesB = multiply(a, b);
   var theProduct = multiply(aTimesB[0], c);
   var sumMessage = a + ' and ' + b + ' and ' + c + ' sum to ' + theSum[0] + '.';
@@ -92,10 +93,17 @@ function sumArray (testArray) { //eslint-disable-line
   {
     theSum = sum(theSum[0], testArray[i]);
   }
+  /* var sumNums = 0;
+  for (var i in testArray) {
+    sumNums = sum(sumNums, testArray[i][0])
+  }
+  */
   var message = testArray + ' was passed in as an array of numbers, and ' + theSum[0] + ' is their sum.';
   document.getElementById('sumArray').innerHTML = message;
   return [theSum, message];
 }
+
+
 
 // DONE: Here is the test for sumArray(); uncomment it to run it
 testSumArray(testArray);
